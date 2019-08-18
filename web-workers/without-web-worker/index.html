@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body class="container">
+    <br /><br />
+    <h3>Fibonacci result:</h3>
+    <div class="card"><div class="card-body" id="counter"></div></div>
+    <br />
+    <button type="button" id="start" class="btn btn-danger">
+      Start Fibonacci
+    </button>
+
+    <button id="button" class="btn btn-primary">
+      Click on me
+    </button>
+    <br /><br />
+    <div class="card"><div class="card-body" id="board"></div></div>
+
+    <script>
+      const boardElement = document.getElementById("board");
+      const counterElement = document.getElementById("counter");
+
+      document.getElementById("button").addEventListener("click", () => {
+        boardElement.innerText = boardElement.innerText + "click ...";
+      });
+
+      document.getElementById("start").addEventListener("click", () => {
+        counterElement.innerText = "Starting...";
+        setTimeout(() => {
+          for (let i = 0; i < 44; i++) {
+            var fib = fibonacci(i);
+            counterElement.innerText =
+              counterElement.innerText + `${i}: ${fib}, `;
+          }
+        }, 10);
+      });
+
+      function fibonacci(num) {
+        if (num <= 1) return 1;
+        return fibonacci(num - 1) + fibonacci(num - 2);
+      }
+    </script>
+  </body>
+</html>
